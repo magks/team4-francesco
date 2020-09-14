@@ -21,8 +21,11 @@ export class AddFormComponent implements OnInit {
             price: new FormControl("")
         });
     }
-
+    
     onSubmit(bookItem){
-        console.log(bookItem);
+        this.http.post('/books', JSON.stringify(bookItem)).subscribe(
+          (response) => console.log(response),
+          (error) => console.log(error)
+        )
     }
 }

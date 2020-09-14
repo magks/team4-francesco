@@ -64,7 +64,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "team4-francesco:build"
+            "browserTarget": "team4-francesco:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

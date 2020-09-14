@@ -1,0 +1,45 @@
+.kmc-form 
+{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.kmc-header 
+{
+    font: x-large;
+    color: darkcyan;
+    font-size: 60px;
+}
+
+.kmc-form-container 
+{
+    background-color: lightgrey;
+    min-height: 80vh;
+}
+
+.kmc-header-container 
+{
+    background-color: lightgrey;
+    min-height: 20vh;
+}
+
+.kmc-form-title 
+{
+    height: 20px;
+    min-height: 50px;
+    max-height: 300px;
+    font-size: 40px;
+    color: lightseagreen;
+}
+
+.kmc-input 
+{
+    height: 5vh;
+    min-height: 50px;
+    max-height: 200px;
+    font-size: 30px;
+    background-color: ghostwhite;
+    color: black;
+    margin-bottom: 8vh;
+}
+

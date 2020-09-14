@@ -16,9 +16,9 @@ export class EditComponent implements OnInit, OnDestroy
     sub:Subscription
 
     constructor(private route: ActivatedRoute) {}
-    ngOnDestroy(): void {
-        this.sub.unsubscribe
-        
+    ngOnDestroy(): void
+    {
+        this.sub.unsubscribe();
     }
 
     ngOnInit() 
@@ -36,6 +36,11 @@ export class EditComponent implements OnInit, OnDestroy
    public postBook() 
    {
        alert("Book To Be Posted Here:\n" +  "ID: " + this.book.Id + "\nPrice: " + this.book.Price + "\nTitle: " + this.book.Title + "\nAuthor: " + this.book.Author)
+   }
+
+   public goBack() 
+   {
+       alert("Go back to main screen here")
    }
 
 }

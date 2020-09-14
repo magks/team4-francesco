@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "team4-francesco"
+    }
+  },
+  "defaultProject": "team4-francesco",
+  "cli": {
+    "analytics": "7164571b-9f64-43b8-8418-096bf0fb6b11"
+  }
 }

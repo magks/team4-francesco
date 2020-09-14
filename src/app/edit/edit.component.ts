@@ -35,6 +35,7 @@ export class EditComponent implements OnInit, OnDestroy
 
    public postBook() 
    {
+       if (!this.checkBook()) return;
        alert("Book To Be Posted Here:\n" +  "ID: " + this.book.Id + "\nPrice: " + this.book.Price + "\nTitle: " + this.book.Title + "\nAuthor: " + this.book.Author)
    }
 
@@ -43,4 +44,14 @@ export class EditComponent implements OnInit, OnDestroy
        alert("Go back to main screen here")
    }
 
+   private checkBook():boolean 
+   {
+       var returnString:string = ""
+       if (this.book.Author == null || this.book.Author == "") returnString += "Error: Author Must Contain Value\n"
+       if (this.book.Price == null || this.book.Price < 0)  returnString += "Error: Check That The Price Is A Valid Positive Number\n"
+       if (this.book.Title == null || this.book.Title == "") returnString += "Error: Book Title Must Be Included\n"
+       if (returnString != "") {alert(returnString); return false;}
+       return true;
+
+   }
 }

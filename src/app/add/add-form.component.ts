@@ -29,15 +29,9 @@ export class AddFormComponent implements OnInit {
     
     onSubmit(bookItem)
     {
-      //  this.http.post('https://localhost:44378/books', JSON.stringify(bookItem)).subscribe(
-        //  (response) => alert(response.toString()),
-          //(error) => alert(error)
-       // )
-      //TODO:Use Service
       this.bookService.addBook(bookItem).subscribe(
         (response) => alert(response.toString()),
         (error) => alert(error)
        )
-        
     }
 }

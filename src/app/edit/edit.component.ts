@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from '../models/Book'
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms'; 
-import { BookService } from 'app/service/book.service';
+import { BookWebApiService } from 'app/service/book.service';
 
 @Component({
   selector: 'kmc-edit',
@@ -16,9 +16,9 @@ export class EditComponent implements OnInit, OnDestroy
     private bookId:number
     public book:Book
     sub:Subscription
-    bookService:BookService
+    bookService:BookWebApiService
 
-    constructor(private route: ActivatedRoute, bookService:BookService) 
+    constructor(private route: ActivatedRoute, bookService: BookWebApiService) 
     {
         this.bookService = bookService
     }

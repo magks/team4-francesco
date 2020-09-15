@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AddFormComponent } from './add/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component'
-import { BookService } from './service/book.service'
+import { BookWebApiService } from './service/book.service'
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { BookService } from './service/book.service'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [BookService],
+  providers: [BookWebApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

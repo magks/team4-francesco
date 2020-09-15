@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BookService } from 'app/service/book.service';
+import { BookWebApiService } from 'app/service/book.service';
 
 @Component({
     selector:'mw-add-form',
@@ -12,9 +12,9 @@ import { BookService } from 'app/service/book.service';
 
 export class AddFormComponent implements OnInit {
     form: FormGroup;
-    bookService: BookService;
+    bookService: BookWebApiService;
     
-    constructor(private http: HttpClient, bookService:BookService)
+    constructor(private http: HttpClient, bookService:BookWebApiService)
     {
       this.bookService = bookService
     }

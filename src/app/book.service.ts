@@ -1,41 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../environments/environment';
+import { BookApiEndpoint } from './models/BookApiEndpoint';
 
+/*
+ * BookAPI Service wraps communication to and from web api via HTTP
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  private port: number;
-  private basePath: string;
+  private apiUrl: string;
+  private apiEndpoint: BookApiEndpoint;
+  private defaultOptions: any;
 
-  // TODO: refactor port, basepath, and api endpoint literals into environment file and inject
   constructor(private httpClient: HttpClient) {
-    this.port = 5200;
-    this.basePath = `/api/Books`;
+    this.defaultOptions = { headers: { 'Content-Type': 'application/json' } };
+    this.apiUrl = environment.apiUrl;
+
+    let apiPaths = environment.apiEndpoints;
+    this.apiEndpoint = {
+        addBook:      `${this.apiUrl}${apiPaths.addBook}`,
+        getBooks:     `${this.apiUrl}${apiPaths.getBooks}`,
+        editBook:     `${this.apiUrl}${apiPaths.editBook}`,
+        deleteBook:   `${this.apiUrl}${apiPaths.deleteBook}`
+    };
   }
 
   addBook(postBook) {
     return this.httpClient.post(
-      `${this.basePath}/AddBook`,
+      this.apiEndpoint.addBook,
       JSON.stringify(postBook),
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
+      this.defaultOptions
+    );
+  }
+
+  editBook(putBook) {
+    return this.httpClient.put(
+      this.apiEndpoint.editBook,
+      JSON.stringify(putBook),
+      this.defaultOptions
     );
   }
 
   getBooks() {
-    return this.httpClient.get(`${this.basePath}/ListBooks`);
-  }
-
-  updateBook(putBook) {
-    return this.httpClient.put(
-      `${this.basePath}/EditBook`,
-      JSON.stringify(putBook)
-    );
+    return this.httpClient.get(this.apiEndpoint.getBooks);
   }
 
   deleteBook(id: number) {
-    return this.httpClient.delete(`${this.basePath}/DeleteBook/${id}`);
+    return this.httpClient.delete(`${this.apiEndpoint.deleteBook}${id}`);
   }
 }

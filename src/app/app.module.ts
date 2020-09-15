@@ -4,14 +4,17 @@ import { EditComponent } from './edit/edit.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddFormComponent } from './add-form.component';
+import { AddFormComponent } from './add/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component'
+import { BookService } from './service/book.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    AddFormComponent
+    AddFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

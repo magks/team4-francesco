@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Book } from '../models/Book'
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,8 @@ export class BookService {
     this.basePath = `/api/Books`;
   }
 
+  //TODO: getBook(id:number)
+
   addBook(postBook) {
     return this.httpClient.post(
       `${this.basePath}/AddBook`,
@@ -25,7 +28,7 @@ export class BookService {
   }
 
   getBooks() {
-    return this.httpClient.get(`${this.basePath}/ListBooks`);
+    return this.httpClient.get<[Book]>(`${this.basePath}/ListBooks`);
   }
 
   updateBook(putBook) {

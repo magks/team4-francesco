@@ -30,10 +30,9 @@ export class BookWebApiService {
 
   addBook(postBook) {
     return this.httpClient.post(
-      this.apiEndpoint.addBook,
-      JSON.stringify(postBook),
-      this.defaultOptions
-    );
+      'https://localhost:44378/api/Books/AddBook',
+      postBook
+    ).subscribe();
   }
 
   editBook(putBook) {

@@ -21,20 +21,20 @@ export class AddFormComponent implements OnInit {
 
     ngOnInit(){
         this.form = new FormGroup({
-            title: new FormControl(""),
-            author: new FormControl(""),
-            price: new FormControl("")
+            Title: new FormControl(""),
+            Author: new FormControl(""),
+            Price: new FormControl("")
         });
     }
     
     onSubmit(bookItem)
     {
-        this.http.post('https://localhost:44378/books', JSON.stringify(bookItem)).subscribe(
-          (response) => alert(response.toString()),
-          (error) => alert(error)
-        )
+        // this.http.post('https://localhost:44378/api/Books/AddBook', bookItem).subscribe(
+        //   (response) => alert(response.toString()),
+        //   (error) => alert(error)
+        // )
       //TODO:Use Service
-      // this.bookService.addBook(bookItem)
+      this.bookService.addBook(bookItem)
         
     }
 }

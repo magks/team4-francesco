@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   apiUrl: '/api',                   // proxy path
-  apiPort: 5200,                    // web api port number
+  apiPort: 44378,                    // web api port number
   apiEndpoints: {
     addBook: '/Book/AddBook',        // expects Book shaped JSON object in the body
     editBook: '/Book/EditBook',      // expects Book shaped JSON object in the body
-    getBooks: '/Book/ListBooks',     // accepts optional query parameters: SortBy=[title|author], MinSalary=[\d*]
+    getBooks: '/Book/GetBooks',     // accepts optional query parameters: SortBy=[title|author], MinSalary=[\d*]
     deleteBook: '/Book/DeleteBook/'  // expects integer id at end of url path, e.g. .../DeleteBook/1
   }
 };

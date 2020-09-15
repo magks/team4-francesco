@@ -1,38 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Book } from '../models/Book';
-
+import { BookWebApiService } from 'app/service/book.service';
 
 @Component({
-    selector: 'app-Book-List',
-    templateUrl: './Book-List.component.html',
-    styleUrls: ['./Book-List.component.css']
+  selector: 'app-book-list',
+  templateUrl: './Book-List.component.html',
+  styleUrls: ['./Book-List.component.css'],
 })
-
-
 export class BookListComponent implements OnInit {
-    public apiUrl = "https://localhost:44378/books";
-    public data: Book[] ;
+  public books: Book[];
 
-    constructor(private http:HttpClient) {
-        this.getBook()
-        
-     }
+  ngOnInit() {
+    this.getBooks();
+  }
 
-    getBook() {
-        //return this.http.get("https://localhost:44378/api/books/getBooks")
-        //.subscribe()
-        this.data = [new Book("Hunger Games", 60, "idk", 0), new Book("Harry Potter", 70, "JK", 1)];
-    } 
+  constructor(private service: BookWebApiService) {}
 
-    /*getBookData(){
-        this.getBook().subscribe(data => {
-            console.log(data);
-            this.data = data
-        })
-    }*/
+  getBooks() {
+    this.service.getBooks().subscribe( book => {
+        this.books = book as Book[];
+    });
+  }
 
-    ngOnInit() {
-
+  onDelete(id: number) {
+    if (confirm('Are you sure you want to delete?')) {
+      this.service.deleteBook(id).subscribe(() => {
+        this.getBooks();
+      });
     }
+  }
 }

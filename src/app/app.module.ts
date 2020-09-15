@@ -8,13 +8,15 @@ import { AddFormComponent } from './add/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component'
 import { BookWebApiService } from './service/book.service'
+import { BookListComponent } from './Book-List/Book-List.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
     AddFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@
 <div class="container-fluid kmc-header-container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center kmc-header">Edit Book With Id: {{book.Id}}</h1>
+            <h1 class="text-center kmc-header">Edit Book With Id: {{book.id}}</h1>
         </div>
     </div>
 </div>
@@ -18,19 +18,19 @@
 <div class="container-fluid kmc-form-container">
     <form class="kmc-form" name="kmc-edit-form" (ngSubmit)="postBook()" novalidate="">
         <div class="form-group" v>
-            <label class="kmc-form-title" for="Book.Title">Title</label>
-            <input name="Title" [(ngModel)]="book.Title" type="text" class="form-control kmc-input" required >
+            <label class="kmc-form-title" for="Book.title">Title</label>
+            <input name="Title" [(ngModel)]="book.title" type="text" class="form-control kmc-input" required >
         </div>
         <div class="form-group">
-            <label class="kmc-form-title" for="Book.Price">Price</label>
-            <input name="Price" type="number" class="form-control kmc-input" [(ngModel)]="book.Price" required>
+            <label class="kmc-form-title" for="Book.price">Price</label>
+            <input name="Price" type="number" class="form-control kmc-input" [(ngModel)]="book.price" required>
         </div>
         <div class="form-group">
-            <label class="kmc-form-title" for="Book.Author">Author</label>
-            <input name="Author" type="text" class="form-control kmc-input" [(ngModel)]="book.Author" required>
+            <label class="kmc-form-title" for="Book.author">Author</label>
+            <input name="Author" type="text" class="form-control kmc-input" [(ngModel)]="book.author" required>
         </div>           
         <input type="submit" value="Submit" class="btn-block btn-primary btn-lg"> 
-        <button type="Button" (click)="goBack()" class=" btn-block btn-danger btn-lg">Cancle</button>
+        <button type="Button" (click)="goBack()" class=" btn-block btn-danger btn-lg">Cancel</button>
     </form>
         
 </div>

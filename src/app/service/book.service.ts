@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Book } from '../models/Book'
 import { environment } from '../../environments/environment';
 import { BookApiEndpoint } from '../models/BookApiEndpoint';
+import { Observable } from 'rxjs';
 
 /*
  * BookAPI Service wraps communication to and from web api via HTTP
@@ -22,6 +23,7 @@ export class BookWebApiService {
     let apiPaths = environment.apiEndpoints;
     this.apiEndpoint = {
         addBook:      `${this.apiUrl}${apiPaths.addBook}`,
+        getBook:      `${this.apiUrl}${apiPaths.getBook}`,
         getBooks:     `${this.apiUrl}${apiPaths.getBooks}`,
         editBook:     `${this.apiUrl}${apiPaths.editBook}`,
         deleteBook:   `${this.apiUrl}${apiPaths.deleteBook}`
@@ -38,7 +40,7 @@ export class BookWebApiService {
 
   editBook(putBook) {
     return this.httpClient.put(
-      `${this.apiEndpoint.editBook}${putBook.Id}`,
+      `${this.apiEndpoint.editBook}${putBook.id}`,
       putBook,
       this.defaultOptions
     );
@@ -46,6 +48,10 @@ export class BookWebApiService {
 
   getBooks() {
     return this.httpClient.get(this.apiEndpoint.getBooks);
+  }
+
+  getBook(id: number): Observable<Book> {
+    return this.httpClient.get<Book>(`${this.apiEndpoint.getBook}${id}`);
   }
 
   deleteBook(id: number) {

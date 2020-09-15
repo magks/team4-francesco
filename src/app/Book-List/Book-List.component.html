@@ -7,11 +7,17 @@
         <td>Author</td>
         <td>Id</td>
     </tr>
-    <tr *ngFor="let book of data">
+    <tr *ngFor="let book of books">
         
-        <td>{{ book.Title }}</td>
-        <td>{{ book.Price }}</td>
-        <td>{{ book.Author }}</td>
-        <td>{{ book.Id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.id }}</td>
+        <td> 
+            <a routerLink="/edit/{{book.id}}" [state]="book">Edit</a> 
+        </td>
+        <td><button (click)="onDelete(book.id)" class="btn btn-sm btn-outline-danger">X</button></td>
     </tr>
-    </table>
+</table>
+
+    

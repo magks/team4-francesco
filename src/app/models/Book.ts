@@ -1,13 +1,14 @@
 export class Book {
-    id: number;
-    title: string;
-    price: number;
-    author: string;
+    
+    Id: number;
+    Title: string;
+    Price: number;
+    Author: string;
 
     constructor(title: string, price: number, author: string, id=null) {
-        this.title = title;
-        this.price = price;
-        this.author = author;
-        if (id != null) this.id = id
+        this.Title = title;
+        this.Price = price;
+        this.Author = author;
+        if (id != null) this.Id = id
     }  
 }

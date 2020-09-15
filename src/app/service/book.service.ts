@@ -31,15 +31,15 @@ export class BookWebApiService {
   addBook(postBook) {
     return this.httpClient.post(
       this.apiEndpoint.addBook,
-      JSON.stringify(postBook),
+      postBook,
       this.defaultOptions
     );
   }
 
   editBook(putBook) {
     return this.httpClient.put(
-      this.apiEndpoint.editBook,
-      JSON.stringify(putBook),
+      `${this.apiEndpoint.editBook}${putBook.Id}`,
+      putBook,
       this.defaultOptions
     );
   }

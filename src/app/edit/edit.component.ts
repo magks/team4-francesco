@@ -21,6 +21,7 @@ export class EditComponent implements OnInit, OnDestroy
     constructor(private route: ActivatedRoute, bookService: BookWebApiService) 
     {
         this.bookService = bookService
+        
     }
     ngOnDestroy(): void
     {
@@ -44,9 +45,9 @@ export class EditComponent implements OnInit, OnDestroy
    public postBook() 
    {
        if (!this.checkBook()) return;
-       alert("Book To Be Posted Here:\n" +  "ID: " + this.book.id + "\nPrice: " + this.book.price + "\nTitle: " + this.book.title + "\nAuthor: " + this.book.author)
+       alert("Book To Be Posted Here:\n" +  "ID: " + this.book.Id + "\nPrice: " + this.book.Price + "\nTitle: " + this.book.Title + "\nAuthor: " + this.book.Author)
        //TODO: Use the service
-       //this.bookService.updateBook(this.book)
+       this.bookService.editBook(this.book).subscribe()
    }
 
    public goBack() 
@@ -58,9 +59,9 @@ export class EditComponent implements OnInit, OnDestroy
    private checkBook():boolean 
    {
        var returnString:string = ""
-       if (this.book.author == null || this.book.author == "") returnString += "Error: Author Must Contain Value\n"
-       if (this.book.price == null || this.book.price < 0)  returnString += "Error: Check That The Price Is A Valid Positive Number\n"
-       if (this.book.title == null || this.book.title == "") returnString += "Error: Book Title Must Be Included\n"
+       if (this.book.Author == null || this.book.Author == "") returnString += "Error: Author Must Contain Value\n"
+       if (this.book.Price == null || this.book.Price < 0)  returnString += "Error: Check That The Price Is A Valid Positive Number\n"
+       if (this.book.Title == null || this.book.Title == "") returnString += "Error: Book Title Must Be Included\n"
        if (returnString != "") {alert(returnString); return false;}
        return true;
 

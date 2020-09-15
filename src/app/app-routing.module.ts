@@ -7,8 +7,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BookListComponent } from './Book-List/Book-List.component';
 
 const routes: Routes = [
-  { path: 'list', component:  BookListComponent },
-  { path: 'edit/:id', component: EditComponent, data : {} },
+  { path: '', component:  BookListComponent },
+  { path: 'edit/:id', component: EditComponent },
   { path: 'add', component: AddFormComponent },
   { path: '**', component: NotFoundComponent },
 ];

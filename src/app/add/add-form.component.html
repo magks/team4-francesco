@@ -9,14 +9,23 @@
         <div class="form-group">
           <label for="author" class="control-label">Author</label>
           <input required type="text" name="author" id="author" class="form-control" formControlName="author">
+          <div *ngIf="form.get('author').invalid && form.get('author').touched" class="alert alert-danger">
+            <div *ngIf="form.get('author').errors.required"> Author is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="title" class="control-label">Title</label>
           <input required type="text" name="title" id="title" class="form-control" formControlName="title">
+          <div *ngIf="form.get('title').invalid && form.get('title').touched" class="alert alert-danger">
+            <div *ngIf="form.get('title').errors.required"> Title is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="price" class="control-label">Price</label>
-          <input required type="number" name="price" id="price" class="form-control" formControlName="price"> 
+          <input required type="number" name="price" id="price" class="form-control" formControlName="price">
+          <div *ngIf="form.get('price').invalid && form.get('price').touched" class="alert alert-danger">
+            <div *ngIf="form.get('price').errors.required"> Price is required.</div>
+          </div> 
         </div>
       </div>
     </div>

@@ -1,34 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NumberSymbol } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
   private port: number;
-  private baseUrl: string;
-  
+  private basePath: string;
+
+  // TODO: refactor port, basepath, and api endpoint literals into environment file and inject
   constructor(private httpClient: HttpClient) {
-    this.port = 44378;
-    this.baseUrl = `http://localhost:${this.port}/books`;
+    this.port = 5200;
+    this.basePath = `/api/Books`;
   }
 
   addBook(postBook) {
-    return this.httpClient.post(`${this.baseUrl}`, JSON.stringify(postBook));
+    return this.httpClient.post(
+      `${this.basePath}/AddBook`,
+      JSON.stringify(postBook),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 
   getBooks() {
-    return this.httpClient.get(`${this.baseUrl}/listBooks`);
+    return this.httpClient.get(`${this.basePath}/ListBooks`);
   }
 
   updateBook(putBook) {
-    return this.httpClient.put(`${this.baseUrl}/addBook`, JSON.stringify(putBook));
+    return this.httpClient.put(
+      `${this.basePath}/EditBook`,
+      JSON.stringify(putBook)
+    );
   }
 
   deleteBook(id: number) {
-    return this.httpClient.delete(`${this.baseUrl}/deleteBook/${id}`);
+    return this.httpClient.delete(`${this.basePath}/DeleteBook/${id}`);
   }
-
-  
 }

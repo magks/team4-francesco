@@ -1,24 +1,73 @@
-<header>
-    <h2>Book</h2>
-  </header>
-  <form  class="form-group"
-    [formGroup]="form"
-    (ngSubmit)="onSubmit(form.value)">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
-          <label for="author" class="control-label">Author</label>
-          <input required type="text" name="author" id="author" class="form-control" formControlName="author">
-        </div>
-        <div class="form-group">
-          <label for="title" class="control-label">Title</label>
-          <input required type="text" name="title" id="title" class="form-control" formControlName="title">
-        </div>
-        <div class="form-group">
-          <label for="price" class="control-label">Price</label>
-          <input required type="number" name="price" id="price" class="form-control" formControlName="price"> 
+<div class="container-fluid kmc-header-container">
+  <div class="row">
+      <div class="col-12">
+          <h1 class="text-center kmc-header">Book</h1>
+      </div>
+  </div>
+</div>
+
+<div class="container-fluid kmc-form-container">
+
+<form  class="form-group" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="title" class="kmc-form-title control-label">Title</label>
+        <input required type="text" name="title" id="title" class="kmc-input form-control" formControlName="title">
+        <div *ngIf="form.get('title').invalid && form.get('title').touched" class="alert alert-danger">
+          <div *ngIf="form.get('title').errors.required"> Title is required.</div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="author" class="kmc-form-title control-label">Author</label>
+        <input required type="text" name="author" id="author" class="kmc-input form-control" formControlName="author">
+        <div *ngIf="form.get('author').invalid && form.get('author').touched" class="alert alert-danger">
+          <div *ngIf="form.get('author').errors.required"> Author is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price" class="kmc-form-title control-label">Price</label>
+        <input required type="number" name="price" id="price" class="kmc-input form-control" formControlName="price"> 
+        <div *ngIf="form.get('price').invalid && form.get('price').touched" class="alert alert-danger">
+          <div *ngIf="form.get('price').errors.required"> Price is required.</div>
+        </div> 
+      </div>
     </div>
-    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Add Book</button>
+  </div>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-lg">Add Book</button>&nbsp;&nbsp;
+  <button type="Button" (click)="goBack()" class="btn-danger btn-lg">Cancel</button>
+</form>
+
+</div>
+
+<!-- 
+<div class="container-fluid kmc-header-container">
+  <div class="row">
+      <div class="col-12">
+          <h1 class="text-center kmc-header">Book</h1>
+      </div>
+  </div>
+</div>
+
+<div class="container-fluid kmc-form-container">
+  <form  class="form-group" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="author" class="kmc-form-title control-label">Author</label>
+        <input required type="text" name="author" id="author" class="kmc-input form-control" formControlName="author">
+      </div>
+      <div class="form-group">
+        <label for="title" class="kmc-form-title control-label">Title</label>
+        <input required type="text" name="title" id="title" class="kmc-input form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="price" class="kmc-form-title control-label">Price</label>
+        <input required type="number" name="price" id="price" class="kmc-input form-control" formControlName="price"> 
+      </div>
+    </div>
+  </div>
+   <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Add Book</button>
   </form>
+</div>
+  -->

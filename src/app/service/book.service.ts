@@ -18,16 +18,7 @@ export class BookWebApiService {
 
   constructor(private httpClient: HttpClient) {
     this.defaultOptions = { headers: { 'Content-Type': 'application/json' } };
-    this.apiUrl = environment.apiUrl;
-
-    let apiPaths = environment.apiEndpoints;
-    this.apiEndpoint = {
-        addBook:      `${this.apiUrl}${apiPaths.addBook}`,
-        getBook:      `${this.apiUrl}${apiPaths.getBook}`,
-        getBooks:     `${this.apiUrl}${apiPaths.getBooks}`,
-        editBook:     `${this.apiUrl}${apiPaths.editBook}`,
-        deleteBook:   `${this.apiUrl}${apiPaths.deleteBook}`
-    };
+    this.apiEndpoint = environment.apiEndpoints;
   }
 
   addBook(postBook) {

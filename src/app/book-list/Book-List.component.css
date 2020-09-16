@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+
+th {
+    height: 3em;
+    min-height: 50px;
+    max-height: 300px;
+    font-size: 40px;
+    color: rgb(66,139,202);
+}
+
+td {
+    height: 2em;
+    min-height: 50px;
+    max-height: 300px;
+    font-size: 30px;
+    color: black;
+}
+
+.kmc-form-container 
+{
+    background-color: rgb(246, 247, 248);
+    min-height: 100vh;
+}
+
+.kmc-header-container 
+{	
+    background-color: rgb(66,139,202);
+    min-height: 4vh;
+}
+
+.kmc-header 
+{
+    font: large;
+    color: rgb(246, 247, 248);
+    font-size: 60px;
+}

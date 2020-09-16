@@ -4,7 +4,7 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { AddFormComponent } from './add/add-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { BookListComponent } from './Book-List/Book-List.component';
+import { BookListComponent } from './book-list/Book-List.component';
 
 const routes: Routes = [
   { path: '', component:  BookListComponent },

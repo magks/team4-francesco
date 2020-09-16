@@ -6,21 +6,21 @@
 
 .kmc-header 
 {
-    font: x-large;
-    color: darkcyan;
+    font: large;
+    color: rgb(246, 247, 248);
     font-size: 60px;
 }
 
 .kmc-form-container 
 {
-    background-color: lightgrey;
+    background-color: rgb(246, 247, 248);
     min-height: 80vh;
 }
 
 .kmc-header-container 
-{
-    background-color: lightgrey;
-    min-height: 20vh;
+{	
+    background-color: rgb(66,139,202);
+    min-height: 9vh;
 }
 
 .kmc-form-title 
@@ -29,7 +29,7 @@
     min-height: 50px;
     max-height: 300px;
     font-size: 40px;
-    color: lightseagreen;
+    color: rgb(66,139,202);
 }
 
 .kmc-input 

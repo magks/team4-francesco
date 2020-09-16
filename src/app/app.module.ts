@@ -8,7 +8,10 @@ import { AddFormComponent } from './add/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component'
 import { BookWebApiService } from './service/book.service'
-import { BookListComponent } from './Book-List/Book-List.component';
+import { BookListComponent } from './book-list/Book-List.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
 
 @NgModule({
   declarations: [
@@ -19,11 +22,12 @@ import { BookListComponent } from './Book-List/Book-List.component';
     BookListComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [BookWebApiService],
   bootstrap: [AppComponent]

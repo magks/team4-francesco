@@ -4,14 +4,13 @@
 
 export const environment = {
   production: false,
-  apiUrl: '/api',                   // proxy path
   apiPort: 5200,                    // web api port number
   apiEndpoints: {
-    addBook: '/Books/AddBook',        // expects Book shaped JSON object in the body
-    getBooks: '/Books/ListBooks',     // accepts optional query parameters: SortBy=[title|author], MinSalary=[\d*]
-    getBook:  '/Books/GetBook/',      // expects integer id at end of url path, e.g. .../GetBook/1
-    editBook: '/Books/EditBook/',     // expects Book shaped JSON object in the body
-    deleteBook: '/Books/DeleteBook/'  // expects integer id at end of url path, e.g. .../DeleteBook/1
+    addBook: '/api/Books/AddBook',        // expects Book shaped JSON object in the body
+    getBooks: '/api/Books/ListBooks',     // accepts optional query parameters: SortBy=[title|author], MinSalary=[\d*]
+    getBook:  '/api/Books/GetBook/',      // expects integer id at end of url path, e.g. .../GetBook/1
+    editBook: '/api/Books/EditBook/',     // expects Book shaped JSON object in the body
+    deleteBook: '/api/Books/DeleteBook/'  // expects integer id at end of url path, e.g. .../DeleteBook/1
   }
 };
 

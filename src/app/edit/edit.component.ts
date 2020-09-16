@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../models/Book';
-import { Subscription, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { BookWebApiService } from 'app/service/book.service';
 
 @Component({
@@ -17,7 +15,11 @@ export class EditComponent implements OnInit, OnDestroy {
   public book: Book;
   sub: Subscription;
 
-  constructor(private route: ActivatedRoute, private bookService: BookWebApiService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private bookService: BookWebApiService
+  ) {}
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -28,12 +30,21 @@ export class EditComponent implements OnInit, OnDestroy {
       this.bookId = params['id'];
     });
     console.log(this.bookId);
-    this.bookService.getBook(this.bookId).subscribe(book => {this.book = book});
+
+    this.bookService.getBook(this.bookId).subscribe(
+      book => {
+        this.book = book;
+      },
+      error => {
+        alert("Not a valid id!");
+        this.router.navigate(['/']);
+      }
+    );
   }
 
   public postBook() {
     if (!this.checkBook()) return;
-    alert(
+    console.log(
       'Book To Be Posted Here:\n' +
         'ID: ' +
         this.book.id +
@@ -45,11 +56,11 @@ export class EditComponent implements OnInit, OnDestroy {
         this.book.author
     );
     this.bookService.editBook(this.book).subscribe();
+    this.goBack();
   }
 
   public goBack() {
-    //TODO: Navagate to list
-    alert('Go back to main screen here');
+    this.router.navigate(['/']);
   }
 
   private checkBook(): boolean {

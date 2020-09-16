@@ -1,21 +1,28 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">BookStore</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/add">Add a Book <span class="sr-only">(current)</span></a> 
-        </li>
-      </ul>
-    </div>
-  </nav>
+<div class="container-fluid outer-container">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="#"><img width="125" height="100" src="../assets/Books4ULogo.png" alt="Books4U Logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/"><b>Home</b><span class="sr-only">(Home)</span></a> 
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/add"><b>Add Book</b><span class="sr-only">(Add Book)</span></a> 
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <section>
     <router-outlet></router-outlet>
   </section>
-  </div>
+</div>
+
 
 <!-- <section>
   <header>

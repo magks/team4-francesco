@@ -1,0 +1,35 @@
+<div class="container-fluid  kmc-header-container">
+    <div class="kmc-header-container">
+        <div class="row">
+            <div class="col-12"> 
+                <h1 class="text-center kmc-header">Books</h1>
+            </div>
+        </div>
+      </div>
+ </div>
+
+<div class="container-fluid  kmc-form-container ">
+    <table>
+        <tr>
+            <th>Id</th> 
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let book of books">
+
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+            <td> 
+                <button  class="btn btn-sm btn-outline-primary" routerLink="/edit/{{book.id}}">Edit</button> 
+            </td>
+            <td><button (click)="onDelete(book.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+        </tr>
+    </table>
+    <hr>
+    <button class="btn btn-lg btn-primary" routerLink="/add">Add Book</button>
+</div>
+
+    

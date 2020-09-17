@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../models/Book';
 import { Subscription } from 'rxjs';
 import { BookWebApiService } from 'app/service/book.service';
+// TODO: use NGRX
+
 
 @Component({
   selector: 'kmc-edit',

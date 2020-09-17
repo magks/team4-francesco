@@ -27,8 +27,9 @@ namespace AspNetCoreWebApi_Assessment
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddDbContext<BookDbContext>(options =>
-                options.UseInMemoryDatabase("Max_DB")
+                options.UseInMemoryDatabase("BookStoreDB")
             );
             services.AddScoped<IBookRepository, InMemoryRepository>();
             services.AddControllers();
@@ -45,6 +46,11 @@ namespace AspNetCoreWebApi_Assessment
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(builder => 
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+            );
 
             app.UseEndpoints(endpoints =>
             {

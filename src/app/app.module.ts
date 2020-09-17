@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component'
 import { BookWebApiService } from './service/book.service'
 import { BookListComponent } from './book-list/Book-List.component';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr'; // TODO: Add animated Toasts 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 
